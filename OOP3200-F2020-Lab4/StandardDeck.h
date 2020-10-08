@@ -46,6 +46,7 @@ public:
 
 	//Methods
 	virtual void Initialize();
+	std::string ToString() const;
 
 private:
 	static const int SIZE = 52;

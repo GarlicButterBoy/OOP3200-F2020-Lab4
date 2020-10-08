@@ -13,7 +13,8 @@ int main()
 	srand(time(nullptr)); // seed the random number generator
 
 	// create a deck
-
+	StandardDeck deck;
+	std::cout << deck.ToString();
 	// Show the deck object as initialized
 	Pause();
 
