@@ -54,8 +54,7 @@ int main()
 	// Reset the deck and show the result
 	std::cout << "Resetting the deck: \n";
 	deck.Initialize();
-	std::cout << deck.DrawCard();
-	std::cout << deck.CardsRemaining();
+	std::cout << deck.ToString();
 }
 
 

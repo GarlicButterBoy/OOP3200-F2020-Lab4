@@ -14,15 +14,13 @@
 //Default Constructor
 StandardDeck::StandardDeck()
 {
-	m_size = 0;
 	std::vector<PlayingCard*> m_cardArray;
-	Initialize();
+	StandardDeck::Initialize();
 }
 
 //Constructor
 StandardDeck::StandardDeck(std::vector<PlayingCard*> deck)
 {
-	SetSize(SIZE);
 	SetDeck(std::move(deck));
 }
 
@@ -52,22 +50,10 @@ std::vector<PlayingCard*> StandardDeck::GetDeck() const
 	return m_cardArray;
 }
 
-//Getter
-int StandardDeck::GetSize() const
-{
-	return m_size;
-}
-
 //Setter
 void StandardDeck::SetDeck(std::vector<PlayingCard*> new_deck)
 {
 	m_cardArray = new_deck;
-}
-
-//Setter
-void StandardDeck::SetSize(int size)
-{
-	m_size = size;
 }
 
 //Resets the deck to 52 cards, sequentially

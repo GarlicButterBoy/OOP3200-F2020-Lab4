@@ -34,11 +34,11 @@ public:
 
 	// Accessors:
 	std::vector<PlayingCard*> GetDeck() const;
-	int GetSize() const;
+
 
 	// Mutators:
 	void SetDeck(std::vector<PlayingCard*> new_deck);
-	void SetSize(int size);
+
 
 	//Methods
 	virtual void Initialize();
@@ -49,8 +49,7 @@ public:
 	std::string RandomDraw();
 
 private:
-	static const int SIZE = 52;
-	int m_size;
+
 	std::vector<PlayingCard*> m_cardArray;
 };
 
