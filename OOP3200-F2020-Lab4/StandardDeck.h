@@ -16,6 +16,8 @@
 #ifndef __STANDARD_DECK__
 #define __STANDARD_DECK__
 
+#include <vector>
+
 #include "PlayingCard.h"
 
 class StandardDeck
@@ -24,7 +26,7 @@ public:
 	// Initialization:
 	StandardDeck();
 
-	StandardDeck(PlayingCard* deck);
+	StandardDeck(std::vector<PlayingCard*> deck);
 
 	// Rule of three:
 	//1. Destructor
@@ -37,12 +39,12 @@ public:
 	StandardDeck& operator=(const StandardDeck other_deck);
 
 	// Accessors:
-	PlayingCard* GetDeck() const;
-	//int GetSize() const;
+	std::vector<PlayingCard*> GetDeck() const;
+	int GetSize() const;
 
 	// Mutators:
-	void SetDeck(PlayingCard* new_deck);
-	//void SetSize(int size);
+	void SetDeck(std::vector<PlayingCard*> new_deck);
+	void SetSize(int size);
 
 	//Methods
 	virtual void Initialize();
@@ -50,8 +52,8 @@ public:
 
 private:
 	static const int SIZE = 52;
-	//int m_size;
-	PlayingCard* m_cardArray;
+	int m_size;
+	std::vector<PlayingCard*> m_cardArray;
 };
 
 #endif /* defined (__STANDARD_DECK__) */

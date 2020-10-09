@@ -1,20 +1,21 @@
 #include "StandardDeck.h"
 
 #include <iostream>
+#include <utility>
 
 //Default Constructor
 StandardDeck::StandardDeck()
 {
-	//m_size = 0;
-	m_cardArray = 0;
+	m_size = 0;
+	std::vector<PlayingCard*> m_cardArray;
 	Initialize();
 }
 
 //Constructor
-StandardDeck::StandardDeck(PlayingCard* deck)
+StandardDeck::StandardDeck(std::vector<PlayingCard*> deck)
 {
-	//SetSize(size);
-	SetDeck(deck);
+	SetSize(SIZE);
+	SetDeck(std::move(deck));
 }
 
 //Destructor
@@ -38,38 +39,38 @@ StandardDeck& StandardDeck::operator=(const StandardDeck other_deck)
 }
 
 //Getter
-PlayingCard* StandardDeck::GetDeck() const
+std::vector<PlayingCard*> StandardDeck::GetDeck() const
 {
 	return m_cardArray;
 }
 
 //Getter
-//int StandardDeck::GetSize() const
-//{
-//	return m_size;
-//}
+int StandardDeck::GetSize() const
+{
+	return m_size;
+}
 
 //Setter
-void StandardDeck::SetDeck(PlayingCard* new_deck)
+void StandardDeck::SetDeck(std::vector<PlayingCard*> new_deck)
 {
 	m_cardArray = new_deck;
 }
 
 //Setter
-//void StandardDeck::SetSize(int size)
-//{
-//	m_size = size;
-//}
+void StandardDeck::SetSize(int size)
+{
+	m_size = size;
+}
 
 void StandardDeck::Initialize()
 {
-	if (m_cardArray != 0)
+	if (!m_cardArray.empty())
 	{
-		delete[]m_cardArray;
+		m_cardArray.clear();
 	}
 
 	//Allocate Memory
-	m_cardArray = new PlayingCard[SIZE];
+	//m_cardArray = new PlayingCard[SIZE];
 	int numOfCards = SIZE;
 
 	int cardIndex = 0;
@@ -78,13 +79,12 @@ void StandardDeck::Initialize()
 	{
 		for (int j = 1; j < PlayingCard::RANKS + 1; j++)
 		{
-			//std::cout << "Card Index: " << cardIndex;
-			//std::cout << "Suit      : " << PlayingCard::CARD_SUIT[i] << std::endl;
-			//std::cout << "Rank      : " << PlayingCard::CARD_RANK[j] << std::endl;
-
+			auto temp = new PlayingCard(j, i);
+			m_cardArray.push_back(temp);
 			//Set the elements
-			m_cardArray[cardIndex].SetSuit(PlayingCard::CARD_SUIT[i]);
-			m_cardArray[cardIndex].SetRank(PlayingCard::CARD_RANK[j]);
+			//m_cardArray[cardIndex];
+			//m_cardArray[cardIndex].SetSuit(PlayingCard::CARD_SUIT[i]);
+			//m_cardArray[cardIndex].SetRank(PlayingCard::CARD_RANK[j]);
 			cardIndex++;
 		}
 	}
@@ -95,14 +95,15 @@ std::string StandardDeck::ToString() const
 {
 	std::string outputString;
 
-	int temp = sizeof(m_cardArray);
+	const int temp = m_cardArray.size();
 	std::cout << std::to_string(temp);
 	for (int index = 0; index < temp; index++ )
 	{
 	outputString += "\n-------------------------------------------";
 	outputString += "\nCard #: " + std::to_string(index + 1);
-	outputString += "\nSuit  : " + m_cardArray[index].GetSuit();
-	outputString += "\nRank  : " + m_cardArray[index].GetRank();
+	//outputString += "\nSuit  : " + m_cardArray[index].GetSuit();
+	outputString += "\nSuit  : " + m_cardArray[index]->GetSuit();
+	outputString += "\nRank  : " + m_cardArray[index]->GetRank();
 	}
 
 	return outputString;
