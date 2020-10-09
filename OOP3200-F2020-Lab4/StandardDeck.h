@@ -49,6 +49,10 @@ public:
 	//Methods
 	virtual void Initialize();
 	std::string ToString() const;
+	virtual void Shuffle();
+	int CardsRemaining();
+	std::string DrawCard();
+	std::string RandomDraw();
 
 private:
 	static const int SIZE = 52;
