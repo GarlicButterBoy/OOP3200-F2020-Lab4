@@ -1,3 +1,11 @@
+/*
+ *
+ *Name		@ Nick Sturch-Flint
+ *Date		@ October 09, 2020
+ *File Name @ StandardDeck.cpp
+ *
+ */
+
 #include "StandardDeck.h"
 #include <algorithm> // needed for sort(), random_shuffle(), and replace()
 #include <iostream>

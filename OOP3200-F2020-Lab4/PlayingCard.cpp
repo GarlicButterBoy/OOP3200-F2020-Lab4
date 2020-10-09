@@ -1,3 +1,11 @@
+/*
+ *
+ *Name		@ Nick Sturch-Flint
+ *Date		@ October 09, 2020
+ *File Name @ PlayingCard.cpp
+ *
+ */
+
 #include "PlayingCard.h"
 #include <stdexcept>	// for invalid_argument
 

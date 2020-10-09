@@ -1,3 +1,11 @@
+/*
+ *
+ *Name		@ Nick Sturch-Flint
+ *Date		@ October 09, 2020
+ *File Name @ Main.cpp
+ *
+ */
+
 #include <ctime>
 #include <iostream>
 #include "StandardDeck.h"

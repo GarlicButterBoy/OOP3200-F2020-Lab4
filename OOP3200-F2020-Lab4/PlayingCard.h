@@ -1,14 +1,10 @@
-/** PlayingCard.h
+/*
  *
- *	This is a version of the PlayingCard class developed from OOP 2200.
+ *Name		@ Nick Sturch-Flint
+ *Date		@ October 09, 2020
+ *File Name @ PlayingCard.h
  *
- *	@author		Thom MacDonald
- *	@author		Tom Tsiliopoulos
- *	@version	2020.10
- *	@since		Jul 2018
- *	@see		Bronson, G. (2012).  Chapter 10 Introduction to Classes.
- *				  In A First Book of C++ (4th ed.). Boston, MA: Course Technology.
-*/
+ */
 
 
 #pragma once
