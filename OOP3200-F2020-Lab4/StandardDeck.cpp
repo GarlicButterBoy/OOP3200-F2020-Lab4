@@ -62,6 +62,7 @@ void StandardDeck::SetSize(int size)
 	m_size = size;
 }
 
+//Resets the deck to 52 cards, sequentially
 void StandardDeck::Initialize()
 {
 	if (!m_cardArray.empty())
@@ -88,13 +89,13 @@ std::string StandardDeck::ToString() const
 	std::string outputString;
 
 	const int temp = m_cardArray.size();
-	//std::cout << std::to_string(temp);
 	for (int index = 0; index < temp; index++ )
 	{
-	outputString += "\n-------------------------------------------";
-	outputString += "\nCard #: " + std::to_string(index + 1);
+	outputString += "\n--------------------";
+	outputString += "\nCard  : #" + std::to_string(index + 1);
 	outputString += "\nSuit  : " + m_cardArray[index]->GetSuit();
 	outputString += "\nRank  : " + m_cardArray[index]->GetRank();
+	outputString += "\n--------------------\n";
 	}
 
 	return outputString;
@@ -107,9 +108,13 @@ void StandardDeck::Shuffle()
 }
 
 //Cards Remaining Method
-int StandardDeck::CardsRemaining()
+std::string StandardDeck::CardsRemaining() const
 {
-	return m_cardArray.size();
+	std::string outputString = "";
+	outputString += "\n--------------------\n";
+	outputString += "Cards Remaining: " + std::to_string(m_cardArray.size());
+	outputString += "\n--------------------\n";
+	return outputString;
 }
 
 //Draw Top Card of Deck
@@ -121,7 +126,7 @@ std::string StandardDeck::DrawCard()
 	{
 		m_cardArray[0]->FlipCard();
 
-		outputString += "You drew the card:\n";
+		outputString += "\nYou drew the card:\n";
 		outputString += "-------------------";
 		outputString += "\nSuit: " + m_cardArray[0]->GetSuit();
 		outputString += "\nRank: " + m_cardArray[0]->GetRank();

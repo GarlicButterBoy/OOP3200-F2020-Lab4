@@ -50,7 +50,7 @@ public:
 	virtual void Initialize();
 	std::string ToString() const;
 	virtual void Shuffle();
-	int CardsRemaining();
+	std::string CardsRemaining() const;
 	std::string DrawCard();
 	std::string RandomDraw();
 
