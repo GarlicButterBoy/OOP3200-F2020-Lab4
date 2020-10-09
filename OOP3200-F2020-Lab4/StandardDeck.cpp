@@ -101,7 +101,6 @@ std::string StandardDeck::ToString() const
 	{
 	outputString += "\n-------------------------------------------";
 	outputString += "\nCard #: " + std::to_string(index + 1);
-	//outputString += "\nSuit  : " + m_cardArray[index].GetSuit();
 	outputString += "\nSuit  : " + m_cardArray[index]->GetSuit();
 	outputString += "\nRank  : " + m_cardArray[index]->GetRank();
 	}
